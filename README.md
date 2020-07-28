@@ -9,8 +9,9 @@ An example selenium project written in Java and managed with maven. This project
 
 ## Testing
 
-To run a test execute `mvn test -P <package_name>`
-Package names in the project:
+To run a test execute `mvn test -P <profle_name>`
+
+Package names in the project (found in pom.xml):
 
 - local
 - parallel

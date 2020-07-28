@@ -25,13 +25,12 @@ public class LocalTest {
 
     @Test
     public void testGoToLocalHost() throws Exception {
-        open_Browser();
-        go_to_localhost();
-        retrieve_Title_if_Up_and_Running();
+        openBrowser();
+        getLocalhostPage();
+        assertLocalhostPage();
     }
 
-    public void open_Browser() throws Exception {
-
+    public void openBrowser() throws Exception {
         caps = new DesiredCapabilities();
         caps.setCapability("os", "Windows");
         caps.setCapability("os_version", "10");
@@ -47,21 +46,22 @@ public class LocalTest {
         options.put("key", AUTOMATE_KEY);
 
         l.start(options);
+        System.out.println("BSLocal Running: " + l.isRunning());
 
         driver = new RemoteWebDriver(new URL(URL), caps);
     }
 
-    public void go_to_localhost() {
+    public void getLocalhostPage() {
         driver.get("http://bs-local.com:45691/check");
     }
 
-    public void retrieve_Title_if_Up_and_Running() throws Exception {
-        System.out.println(driver.getTitle());
+    public void assertLocalhostPage() throws Exception {
+        Assert.assertTrue(driver.getPageSource().contains("Up and running"));
+
         driver.quit();
+
         if (l != null) {
             l.stop();
         }
-        if (l != null)
-            l.stop();
     }
 }
