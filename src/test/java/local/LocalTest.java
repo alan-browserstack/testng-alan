@@ -1,6 +1,7 @@
 package local;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.browserstack.local.Local;
 
