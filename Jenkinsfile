@@ -25,7 +25,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn test -P ${params.TEST_TYPE}'
+                sh "mvn test -P ${params.TEST_TYPE}"
             }
         }
     }
