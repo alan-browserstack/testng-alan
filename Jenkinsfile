@@ -21,21 +21,9 @@ pipeline {
             }
         }
 
-        stage('Test - Single') {
+        stage('Test') {
             steps {
-                sh 'mvn test -P single'
-            }
-        }
-
-        stage('Test - Parallel') {
-            steps {
-                sh 'mvn test -P parallel'
-            }
-        }
-        
-        stage('Test - Local') {
-            steps {
-                sh 'mvn test -P local'
+                sh 'mvn test -P ${params.TEST_TYPE}'
             }
         }
     }
