@@ -2,6 +2,8 @@ pipeline {
 
     agent any
 
+    parameters { choice(name: 'TEST_TYPE', choices: ['single', 'parallel', 'local'], description: '') }
+
     environment {
         PATH = "/usr/local/bin:/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby/bin:$PATH"
     }
